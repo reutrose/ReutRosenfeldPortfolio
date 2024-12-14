@@ -2,52 +2,52 @@ const cards = [
 	{
 		id: 1,
 		name: "mufasa",
-		src: "/projects/javascript/MemoryGame/folder-MemoryGame/images/mufasa.jpg",
+		src: "images/mufasa.jpg",
 	},
 	{
 		id: 2,
 		name: "hyenas",
-		src: "/projects/javascript/MemoryGame/folder-MemoryGame/images/hyenas.jpg",
+		src: "images/hyenas.jpg",
 	},
 	{
 		id: 3,
 		name: "pumba",
-		src: "/projects/javascript/MemoryGame/folder-MemoryGame/images/pumba.jpg",
+		src: "images/pumba.jpg",
 	},
 	{
 		id: 4,
 		name: "simba",
-		src: "/projects/javascript/MemoryGame/folder-MemoryGame/images/simba.jpg",
+		src: "images/simba.jpg",
 	},
 	{
 		id: 5,
 		name: "timon",
-		src: "/projects/javascript/MemoryGame/folder-MemoryGame/images/timon.jpg",
+		src: "images/timon.jpg",
 	},
 	{
 		id: 6,
 		name: "nala",
-		src: "/projects/javascript/MemoryGame/folder-MemoryGame/images/nala.jpg",
+		src: "images/nala.jpg",
 	},
 	{
 		id: 7,
 		name: "priderock",
-		src: "/projects/javascript/MemoryGame/folder-MemoryGame/images/priderock.jpg",
+		src: "images/priderock.jpg",
 	},
 	{
 		id: 8,
 		name: "rafiki",
-		src: "/projects/javascript/MemoryGame/folder-MemoryGame/images/rafiki.jpg",
+		src: "images/rafiki.jpg",
 	},
 	{
 		id: 9,
 		name: "scar",
-		src: "/projects/javascript/MemoryGame/folder-MemoryGame/images/scar.jpg",
+		src: "images/scar.jpg",
 	},
 	{
 		id: 10,
 		name: "zazu",
-		src: "/projects/javascript/MemoryGame/folder-MemoryGame/images/zazu.jpg",
+		src: "images/zazu.jpg",
 	},
 ];
 
