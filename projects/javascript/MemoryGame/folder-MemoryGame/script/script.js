@@ -2,52 +2,52 @@ const cards = [
 	{
 		id: 1,
 		name: "mufasa",
-		src: "images/mufasa.jpg",
+		src: "./images/mufasa.jpg",
 	},
 	{
 		id: 2,
 		name: "hyenas",
-		src: "images/hyenas.jpg",
+		src: "./images/hyenas.jpg",
 	},
 	{
 		id: 3,
 		name: "pumba",
-		src: "images/pumba.jpg",
+		src: "./images/pumba.jpg",
 	},
 	{
 		id: 4,
 		name: "simba",
-		src: "images/simba.jpg",
+		src: "./images/simba.jpg",
 	},
 	{
 		id: 5,
 		name: "timon",
-		src: "images/timon.jpg",
+		src: "./images/timon.jpg",
 	},
 	{
 		id: 6,
 		name: "nala",
-		src: "images/nala.jpg",
+		src: "./images/nala.jpg",
 	},
 	{
 		id: 7,
 		name: "priderock",
-		src: "images/priderock.jpg",
+		src: "./images/priderock.jpg",
 	},
 	{
 		id: 8,
 		name: "rafiki",
-		src: "images/rafiki.jpg",
+		src: "./images/rafiki.jpg",
 	},
 	{
 		id: 9,
 		name: "scar",
-		src: "images/scar.jpg",
+		src: "./images/scar.jpg",
 	},
 	{
 		id: 10,
 		name: "zazu",
-		src: "images/zazu.jpg",
+		src: "./images/zazu.jpg",
 	},
 ];
 
