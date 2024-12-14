@@ -23,6 +23,17 @@ body {
 	background-color: #222;
 	text-decoration: none;
 	list-style: none;
+	overflow-x: hidden;
+}
+
+.portfolio-header,
+.about-me-container,
+.arsenal-container,
+.projects,
+.contact-me-container,
+.footer {
+	width: 100%;
+	overflow-x: hidden;
 }
 
 /* Navbar */
