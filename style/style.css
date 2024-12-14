@@ -761,7 +761,7 @@ body {
 
 @media (max-width: 768px) {
 	.projects-grid {
-		width: 520px;
+		width: 100vw;
 	}
 }
 
