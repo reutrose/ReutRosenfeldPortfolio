@@ -835,12 +835,12 @@ body {
 .formBox {
 	grid-row: 3/4;
 	grid-column: 1/2;
-	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+	height: 100vh;
 }
 
 .user-message {
@@ -891,6 +891,7 @@ body {
 		grid-row: 2/3;
 		grid-column: 2/3;
 		padding-right: 100px;
+		height: 100%;
 	}
 }
 
