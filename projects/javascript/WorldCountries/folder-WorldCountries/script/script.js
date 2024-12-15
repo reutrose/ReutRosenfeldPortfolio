@@ -13,19 +13,9 @@ const closeModal = document.getElementById("close-modal");
 let wishlistBtn = document.getElementById("wishlist-btn");
 
 class Country {
-	constructor(
-		name,
-		capital,
-		president,
-		population,
-		flag,
-		currency,
-		continent,
-		size
-	) {
+	constructor(name, capital, population, flag, currency, continent, size) {
 		this.name = name;
 		this.capital = capital;
-		this.president = president;
 		this.population = population;
 		this.flag = flag;
 		this.currency = currency;
@@ -48,7 +38,6 @@ function fetchCountries() {
 					new Country(
 						country.name,
 						country.capital || "No information",
-						country.current_president?.name || "No information",
 						country.population || "No information",
 						country.href?.flag || "No information",
 						country.currency || "No information",
@@ -57,6 +46,7 @@ function fetchCountries() {
 					)
 			);
 			displayCountries();
+			console.log(countries);
 		})
 		.catch((error) => {
 			console.error("Error fetching countries database: ", error);
@@ -135,9 +125,6 @@ function showCountryDetails(countryName) {
 	countryInfo.innerHTML = `
 		<h2>${country.name}</h2>
 		<p><strong>Capital:</strong> ${country.capital}</p>
-		<p><strong>President:</strong> ${
-			country.president
-		}</p> <!-- Ensure this line is correct -->
 		<p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
 		<p><strong>Currency:</strong> ${country.currency}</p>
 		<p><strong>Continent:</strong> ${country.continent}</p>
