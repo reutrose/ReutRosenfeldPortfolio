@@ -97,7 +97,7 @@ function shuffle(cards) {
 }
 
 function createCards() {
-	const shuffledCards = [...cardsToDisplay, ...cardsToDisplay];
+	const shuffledCards = shuffle([...cardsToDisplay, ...cardsToDisplay]);
 	shuffledCards.forEach((card) => {
 		const cardElement = document.createElement("div");
 		cardElement.classList.add("card");
@@ -186,5 +186,6 @@ restartButton.addEventListener("click", () => {
 	turnIndicator.textContent = "Player 1's Turn";
 	winnerMessage.textContent = "";
 	cardsContainer.innerHTML = "";
+	cardsToDisplay = shuffle(cardsToDisplay);
 	createCards();
 });
