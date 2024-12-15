@@ -135,7 +135,9 @@ function showCountryDetails(countryName) {
 	countryInfo.innerHTML = `
 		<h2>${country.name}</h2>
 		<p><strong>Capital:</strong> ${country.capital}</p>
-		<p><strong>President:</strong> ${country.president}</p>
+		<p><strong>President:</strong> ${
+			country.president
+		}</p> <!-- Ensure this line is correct -->
 		<p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
 		<p><strong>Currency:</strong> ${country.currency}</p>
 		<p><strong>Continent:</strong> ${country.continent}</p>
