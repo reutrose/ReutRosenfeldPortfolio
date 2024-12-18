@@ -8,25 +8,21 @@ const STORAGE_KEY = "groceries";
 let groceries = [];
 let allGroceries = [];
 
-async function fetchGroceries() {
-	try {
-		const response = await fetch("./data/groceries.json");
-		if (!response.ok) {
-			throw new Error("Could not load groceries data.");
-		}
-		const defaultGroceries = await response.json();
-
-		allGroceries = defaultGroceries.map((item) => item.name);
-		populateDatalist(allGroceries);
-
-		groceries = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-		renderGroceries();
-	} catch (error) {
-		console.error(error.message);
-	}
+function fetchGroceries() {
+	fetch("./data/groceries.json")
+		.then((response) => response.json())
+		.then((defaultGroceries) => {
+			allGroceries = defaultGroceries.map((item) => item.name);
+			commonSuggestions(allGroceries);
+			groceries = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+			displayGroceries();
+		})
+		.catch((error) => {
+			console.error(error.message);
+		});
 }
 
-function populateDatalist(options) {
+function commonSuggestions(options) {
 	grocerySuggestions.innerHTML = options
 		.map((option) => `<option value="${option}"></option>`)
 		.join("");
@@ -36,13 +32,13 @@ function saveGroceries() {
 	localStorage.setItem(STORAGE_KEY, JSON.stringify(groceries));
 }
 
-function renderGroceries() {
+function displayGroceries() {
 	groceryList.innerHTML = "";
 	groceries.forEach((item, index) => {
 		const li = document.createElement("li");
 		li.className = item.checked ? "checked" : "";
 		li.innerHTML = `
-<span>${item.name}</span>
+<span class="item-name">${item.name}</span>
 <div class="grocery-actions">
 ${
 	item.checked
@@ -64,14 +60,15 @@ groceryForm.addEventListener("submit", (e) => {
 		groceries.push({ name, checked: false });
 		groceryInput.value = "";
 		saveGroceries();
-		renderGroceries();
+		displayGroceries();
+		feedbackMessage("added");
 	}
 });
 
 function toggleChecked(index) {
 	groceries[index].checked = !groceries[index].checked;
 	saveGroceries();
-	renderGroceries();
+	displayGroceries();
 }
 
 function editGrocery(index) {
@@ -79,14 +76,72 @@ function editGrocery(index) {
 	if (newName !== null && newName.trim() !== "") {
 		groceries[index].name = newName.trim();
 		saveGroceries();
-		renderGroceries();
+		displayGroceries();
+		feedbackMessage("edited");
+	}
+}
+
+function feedbackMessage(message) {
+	const toastConfig = {
+		duration: 3000,
+		close: true,
+		gravity: "top",
+		position: "center",
+		stopOnFocus: true,
+	};
+
+	switch (message) {
+		case "edited":
+			Toastify({
+				...toastConfig,
+				text: "Successfully edited!",
+				style: {
+					background: "#e08132",
+					color: "#fff",
+				},
+			}).showToast();
+			break;
+
+		case "deleted":
+			Toastify({
+				...toastConfig,
+				text: "Successfully deleted!",
+				style: {
+					background: "#dc3545",
+					color: "#fff",
+				},
+			}).showToast();
+			break;
+
+		case "added":
+			Toastify({
+				...toastConfig,
+				text: "Successfully added!",
+				style: {
+					background: "#28a745",
+					color: "#fff",
+				},
+			}).showToast();
+			break;
+
+		default:
+			Toastify({
+				...toastConfig,
+				text: "Something went wrong...",
+				style: {
+					background: "#6c757d",
+					color: "#fff",
+				},
+			}).showToast();
+			break;
 	}
 }
 
 function deleteGrocery(index) {
 	groceries.splice(index, 1);
 	saveGroceries();
-	renderGroceries();
+	displayGroceries();
+	feedbackMessage("deleted");
 }
 
 fetchGroceries();

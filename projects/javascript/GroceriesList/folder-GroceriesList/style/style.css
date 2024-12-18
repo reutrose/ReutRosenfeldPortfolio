@@ -73,7 +73,7 @@ header {
 	border-radius: 5px;
 }
 
-#grocery-list li.checked {
+#grocery-list li.checked .item-name {
 	text-decoration: line-through;
 	color: gray;
 }
@@ -82,7 +82,11 @@ header {
 	background: transparent;
 	border: none;
 	cursor: pointer;
-	font-size: 1rem;
+	font-size: 1.2rem;
+}
+
+.grocery-actions button:hover {
+	color: #007bff;
 }
 
 footer {
